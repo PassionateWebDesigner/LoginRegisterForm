@@ -91,9 +91,14 @@
 .check-box{
     margin: 10px 10px 20px 17px;
 }
-span{
+span1{
     color:#777;
     bottom: 52px;
+    position: absolute;
+}
+span2{
+    color:#777;
+    bottom: 58px;
     position: absolute;
 }
 #login{
@@ -132,14 +137,14 @@ span{
                 <input type="text" id="Uid" name="Uid" required autofocus autocomplete="username" placeholder="Enter Your Username" class="input-field">
                 <label for="pname">Password</label>
                 <input type="password" id="pname" name="pname" required autofocus  placeholder="Enter Your Password" class="input-field">
-                <input type="checkbox" class="check-box"><span>Remember Password</span>
+                <input type="checkbox" class="check-box"><span class="span1>Remember Password</span>
                 <button type="submit" class="submit-btn">Login</button>
             </form>
             <form action="" class="input-group" id="register" class="label2">
                 <input type="text" id="Uid" name="Uid" required autofocus autocomplete="username" placeholder="Enter Your Username" class="input-field">
                 <input type="email" id="eid" name="eid" required autofocus autocomplete="username" placeholder="Enter Your email Id" class="input-field">
                 <input type="password" id="pname" name="pname" required autofocus  placeholder="Enter Your Password" class="input-field">
-                <input type="checkbox" class="check-box"><span>I agree to terms and conditions</span>
+                <input type="checkbox" class="check-box"><span class="span2>I agree to terms and conditions</span>
                 <button type="submit" class="submit-btn">Register</button>
             </form>
         </div>

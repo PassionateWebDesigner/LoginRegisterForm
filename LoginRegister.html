@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .formlogin{
+    height:100%;
+    width: 100%;
+    position: fixed;
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../images/10-5--thumb.png);
+    background-size: cover;
+    background-position:center;
+}
+.formbox{
+    width: 380px;
+    height:440px;
+    position: relative;
+    margin: 6% auto;
+    background: #ffffff;
+    padding: 5px;
+    overflow: hidden;
+}
+.buttonbox{
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+.btn{
+    padding: 10px 30px;
+    background: transparent;
+    cursor: pointer;
+    border:0;
+    outline: none;
+    position: relative;
+}
+#btns{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    border-radius: 30px;
+    transition: .5s;
+}
+.social-icons{
+    margin: 30px auto;
+    font-size: 30px;
+    cursor:pointer;
+    text-align: center;
+}
+.input-group{
+    top:180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+.label1{
+    font-size:14px;
+    font-weight: bold;
+}
+.label2{
+    font-size:14px;
+    font-weight: bold;
+}
+.input-field{
+    width: 90%;
+    padding: 10px 0;
+    margin: 10px 0;
+    margin-left: 15px;
+    border-top: 0;
+    border-left:0;
+    border-right: 0;
+}
+.submit-btn{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+.check-box{
+    margin: 10px 10px 20px 17px;
+}
+span{
+    color:#777;
+    bottom: 52px;
+    position: absolute;
+}
+#login{
+    left: 50px;
+}
+#register{
+    left:450px;
+}
+@media(max-width:768px){
+    .formbox{
+        margin-top:100px;
+        width: 300px;
+    }
+    .input-group{
+        width: 240px;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="formlogin">
+        <div class="formbox">
+            <div class="buttonbox">
+                <div id="btns"></div>
+                <button type="button" class="btn" onclick="login()">Login</button>
+                <button type="button" class="btn" onclick="register()">Register</button>
+            </div>
+            <div class="social-icons">
+                <i class="fa fa-facebook-square" aria-hidden="true" style="color:#FF0066;"></i>
+                <i class="fa fa-twitter-square" aria-hidden="true" style="color:#FF0066;padding-left:10px;"></i>
+                <i class="fa fa-whatsapp" aria-hidden="true" style="color:#FF0066;padding-left: 10px;"></i>
+                <i class="fa fa-instagram" aria-hidden="true" style="color: #FF0066;padding-left: 10px;"></i>
+            </div>
+            <form action="" class="input-group" id="login" class="label1">
+                <label for="Uid">User Id</label>
+                <input type="text" id="Uid" name="Uid" required autofocus autocomplete="username" placeholder="Enter Your Username" class="input-field">
+                <label for="pname">Password</label>
+                <input type="password" id="pname" name="pname" required autofocus  placeholder="Enter Your Password" class="input-field">
+                <input type="checkbox" class="check-box"><span>Remember Password</span>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <form action="" class="input-group" id="register" class="label2">
+                <input type="text" id="Uid" name="Uid" required autofocus autocomplete="username" placeholder="Enter Your Username" class="input-field">
+                <input type="email" id="eid" name="eid" required autofocus autocomplete="username" placeholder="Enter Your email Id" class="input-field">
+                <input type="password" id="pname" name="pname" required autofocus  placeholder="Enter Your Password" class="input-field">
+                <input type="checkbox" class="check-box"><span>I agree to terms and conditions</span>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        var x=document.getElementById("login");
+        var y=document.getElementById("register")
+        var z=document.getElementById("btn");
+        
+        function register(){
+            x.style.left="-400px";
+            y.style.left="50px";
+            z.style.left="110px";
+        }
+        function login(){
+            x.style.left="50px";
+            y.style.left="450px";
+            z.style.left="0";
+        }
+    </script>
+</body>
+</html>

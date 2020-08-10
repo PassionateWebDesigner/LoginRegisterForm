@@ -133,7 +133,7 @@
                 <i class="fa fa-whatsapp" aria-hidden="true" style="color:#FF0066;padding-left: 10px;"></i>
                 <i class="fa fa-instagram" aria-hidden="true" style="color: #FF0066;padding-left: 10px;"></i>
             </div>
-            <form action="" class="input-group" id="login" class="label1">
+            <form action="message.html" class="input-group" id="login" class="label1">
                 <label for="Uid">User Id</label>
                 <input type="text" id="Uid" name="Uid" required autofocus autocomplete="username" placeholder="Enter Your Username" class="input-field">
                 <label for="pname">Password</label>
@@ -141,7 +141,7 @@
                 <input type="checkbox" class="check-box"><span class="span1">Remember Password</span>
                 <button type="submit" class="submit-btn">Login</button>
             </form>
-            <form action="" class="input-group" id="register" class="label2">
+            <form action="message.html" class="input-group" id="register" class="label2">
                 <input type="text" id="Uid" name="Uid" required autofocus autocomplete="username" placeholder="Enter Your Username" class="input-field">
                 <input type="email" id="eid" name="eid" required autofocus autocomplete="username" placeholder="Enter Your email Id" class="input-field">
                 <input type="password" id="pname" name="pname" required autofocus  placeholder="Enter Your Password" class="input-field">
@@ -164,6 +164,26 @@
             x.style.left="50px";
             y.style.left="450px";
             z.style.left="0";
+        }
+        function validate(){
+            var user=document.getElementById("name");
+            var pwd=document.getElementById("pname");
+            
+            if(user.value.trim()==" "){
+                alert("please enter your username");
+                return false;
+            }
+            else if(pwd.value.trim()== " "){
+                window.alert("please enter your password");
+                return false;
+            }
+            else if(pwd.value.length <5){
+                alert("password is too short");
+                return false;
+            }
+            else{
+                return true;
+            }
         }
     </script>
 </body>

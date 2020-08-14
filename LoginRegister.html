@@ -124,8 +124,8 @@
         <div class="formbox">
             <div class="buttonbox">
                 <div id="btns"></div>
-                <button type="button" class="btn" onclick="login()">Login</button>
-                <button type="button" class="btn" onclick="register()">Register</button>
+                <button type="button" class="btn1" onclick="login()">Login</button>
+                <button type="button" class="btn2 " onclick="register()">Register</button> 
             </div>
             <div class="social-icons">
                 <i class="fa fa-facebook-square" aria-hidden="true" style="color:#FF0066;"></i>
@@ -133,20 +133,21 @@
                 <i class="fa fa-whatsapp" aria-hidden="true" style="color:#FF0066;padding-left: 10px;"></i>
                 <i class="fa fa-instagram" aria-hidden="true" style="color: #FF0066;padding-left: 10px;"></i>
             </div>
-            <form action="message.html" class="input-group" id="login" class="label1" onsubmit="return validate();">
-                <label for="Uid">User Id</label>
+            <form action="message.html" name="myform" onsubmit="return validateform()" class="input-group" id="login" class="label1">
+                <!--<label for="Uid">User Id</label>-->
                 <input type="text" id="Uid" name="Uid" required autofocus autocomplete="username" placeholder="Enter Your Username" class="input-field">
-                <label for="pname">Password</label>
+                <!--<label for="pname">Password</label>-->
                 <input type="password" id="pname" name="pname" required autofocus  placeholder="Enter Your Password" class="input-field">
                 <input type="checkbox" class="check-box"><span class="span1">Remember Password</span>
                 <button type="submit" class="submit-btn">Login</button>
             </form>
-            <form action="message.html" class="input-group" id="register" class="label2" onsubmit="return validate();">
-                <input type="text" id="Uid" name="Uid" required autofocus autocomplete="username" placeholder="Enter Your Username" class="input-field">
+            <form  onsubmit="return validateform();" action="message.html" class="input-group" id="register" class="label2">
+                <input type="text" id="Usid" name="Uid" required autofocus autocomplete="username" placeholder="Enter Your Username" class="input-field">
                 <input type="email" id="eid" name="eid" required autofocus autocomplete="username" placeholder="Enter Your email Id" class="input-field">
-                <input type="password" id="pname" name="pname" required autofocus  placeholder="Enter Your Password" class="input-field">
-                <input type="checkbox" class="check-box"><span class="span2">I agree to terms and conditions</span>
-                <button type="submit" class="submit-btn">Register</button>
+                <label for="eid" id="test" style="color: red;visibility: hidden;">Invalid</label>
+                <input type="password" id="psname" name="pname" required autofocus  placeholder="Enter Your Password" class="input-field">
+                <input type="checkbox" class="check-box" checked><span class="span2">I agree to terms and conditions</span>
+                <button type="submit" class="submit-btn" onclick="validateEmail()">Register</button>
             </form>
         </div>
     </div>
@@ -155,8 +156,8 @@
         var y=document.getElementById("register")
         var z=document.getElementById("btns");
         
-        function register(){
-            x.style.left="-400px";
+        function register(){   
+                        x.style.left="-400px";
             y.style.left="50px";
             z.style.left="110px";
         }
@@ -165,24 +166,51 @@
             y.style.left="450px";
             z.style.left="0";
         }
-        function validate(){
-            var user=document.getElementById("name");
-            var pwd=document.getElementById("pname");
-            
-            if(user.value.trim()==" "){
-                alert("please enter your username");
+        function validateform()
+        {       
+        var username=document.getElementById("Usid");
+        var password=document.getElementById("psname");
+         if(username.value.trim()=="")
+         {
+             alert("Blank Username");
+             document.getElementById("test").style.visibility="visibile";
+             return false;
+         }
+         else if(password.value.trim()=="")
+         {
+            alert("password field empty");
+            psname.style.border = "solid 2px red"
+            return false;
+         }
+         else if(psname.value.trim().length<7)
+         {
+                alert("password must be of 8 character or more");
+                psname.style.border = "solid 2px red"
                 return false;
-            }
-            else if(pwd.value.trim()== " "){
-                window.alert("please enter your password");
-                return false;
-            }
-            else if(pwd.value.length <5){
-                alert("password is too short");
-                return false;
-            }
-            else{
+         }
+       
+        else
+        {
                 return true;
+        }
+    }
+        
+        function validateEmail()
+        {
+            var text= document.getElementById("eid").value;
+            var regx = /^([a-zA-z0-9\.-]+)@([a-zA-Z0-9-]+)([a-z]{2,8})(.[a-z]{2,8})?$/
+
+            if(regx.test(eid))
+            {
+                document.getElementById("test").innerHTML="Valid";
+                document.getElementById("test").style.visibility="visible";
+                document.getElementById("test").style.color="green";
+            }
+            else
+            {
+                document.getElementById("test").innerHTML="Invalid";
+                document.getElementById("test").style.visibility="visible";
+                document.getElementById("test").style.color="red";
             }
         }
     </script>
